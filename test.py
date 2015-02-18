@@ -6,6 +6,10 @@ from time import sleep
 
 delay = 60
 
+#gauge is a metric type used by StatsD that sends the most recent data
+#until a new value is sent. 'random int' is the name of the metric to
+#be sent to graphite, and x is the value associated with it. For the
+#gauge metric type, timestamps are added automatically when send() is used
 def test_random(delay):
     gauge = statsd.Gauge('test')
     while True:
