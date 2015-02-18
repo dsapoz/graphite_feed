@@ -4,7 +4,7 @@ import statsd
 from random import randint
 from time import sleep
 
-delay = 60
+delay = 60 #sending UDP packet every 60 seconds
 
 #gauge is a metric type used by StatsD that sends the most recent data
 #until a new value is sent. 'random int' is the name of the metric to
