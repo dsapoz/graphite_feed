@@ -1,0 +1,5 @@
+Metric: 'table_id.product_name.name '
+Value: 'value'
+Time: ' _t'
+
+Metric + Value + Time + \n

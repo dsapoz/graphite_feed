@@ -1,4 +1,6 @@
+#takes time in format "MM/DD/YYYY HH/MM/SS" and converts to UNIX time stamp 
 from datetime import datetime
+
 
 def to_datetime(ts):
     day = int(ts[0:2])
@@ -22,5 +24,3 @@ def main():
     
 if __name__ == "__main__":
     main()
-
-
