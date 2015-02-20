@@ -66,9 +66,9 @@ def to_graphite(jlines):
 			
 def main():
 	#test output
-	file = 'result_2015-02-18.json'
+	jfile = 'result_2015-02-19.json'
 	
-	with open(file, "r") as jin, open('test_format.txt', "w") as gout:
+	with open(jfile, "r") as jin, open('test_format.txt', "w") as gout:
 		gout.writelines(to_graphite(jin.readlines()))
 	
 	print 'successful'
