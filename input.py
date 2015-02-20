@@ -10,10 +10,18 @@ CARBON_PORT = 2003
 
 
 while True:
-    
+    exist = False
     jfile = 'result_'+str(datetime.now(pytz.utc))[:10]+'.json' #uses file for current date (in UTC)
+    url = 'http://10.228.141.113:9011/results/PR/'+jfile
     
-    for line in to_graphite(urllib2.urlopen('http://10.228.141.113:9011/results/PR/'+jfile).readlines()):
+    while not exist:
+        try:
+            urllib2.urlopen(url)
+            exist = True
+        except urllib2.URLError:
+            sleep(300) #if url doesn't exist yet, wait 5 minutes then try again
+    
+    for line in to_graphite(urllib2.urlopen(url).readlines()):
         sock = socket.socket()
         sock.connect((CARBON_SERVER, CARBON_PORT))
         sock.send(line)
