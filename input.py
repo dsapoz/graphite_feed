@@ -1,17 +1,18 @@
 #feeding data to graphite directly
-import socket
+import socket, urllib2, pytz
 from json_read import to_graphite #takes json result file / outputs graphite message list
-import urllib2
 from time import sleep, asctime
+from datetime import datetime
 
 
 CARBON_SERVER = '127.0.0.1'
 CARBON_PORT = 2003
 
 
-jfile = 'result_2015-02-20.json' #Should have a way to check current date and change jfile accordingly?
-
 while True:
+    
+    jfile = 'result_'+str(datetime.now(pytz.utc))[:10]+'.json' #uses file for current date (in UTC)
+    
     for line in to_graphite(urllib2.urlopen('http://10.228.141.113:9011/results/PR/'+jfile).readlines()):
         sock = socket.socket()
         sock.connect((CARBON_SERVER, CARBON_PORT))
