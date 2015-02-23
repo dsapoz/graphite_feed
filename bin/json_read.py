@@ -1,5 +1,5 @@
 #converts a json result file to a list format that can be fed to Graphite
-#follows the format 'table_id.product_name.name value time\n'
+#follows the format 'environment.table_id.product_name.name value time\n'
 from time_convert import to_unix
 
 
