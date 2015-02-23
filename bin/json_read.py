@@ -63,13 +63,19 @@ def to_graphite(jlines):
 			table_start = end
 
 	return message
+
+def add_env(env, glines):
+	for line in range(len(glines)):
+		glines[line] = env + '.' + glines[line]
+	return glines
 			
 def main():
 	#test output
 	jfile = 'result_2015-02-19.json'
+	env = 'PR'
 	
 	with open(jfile, "r") as jin, open('test_format.txt', "w") as gout:
-		gout.writelines(to_graphite(jin.readlines()))
+		gout.writelines(add_env(env, to_graphite(jin.readlines())))
 	
 	print 'successful'
 	

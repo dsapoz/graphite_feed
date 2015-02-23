@@ -2,7 +2,7 @@
 
 Graphite format:
 
-Metric: 'table_id.product_name.name '
+Metric: 'environment.table_id.product_name.name '
 Value: 'value'
 Time: ' _t'
 
