@@ -30,4 +30,4 @@ while True:
         
         sock.close()
         print env + ' ' + jfile[:-5] + ' messages sent at ' + asctime()
-    sleep(60) #wait 1 minute then collect logs again
+    sleep(300) #wait 5 minutes then collect logs again
